@@ -163,7 +163,7 @@ python train.py -c config/uavid/sfanet.py
 <img src="fig_ex/vaihingen.png" width="50%"/>
 
 ```
-python test_vaihingen.py -c config/vaihingen/sfanet.py -o fig_results/vaihingen/sfanet --rgb -t 'd4'
+python test_vaihingen.py -c config/vaihingen/sfanet.py -o fig_results/vaihingen/sfanet_vaihingen --rgb -t 'd4'
 ```
 
 
@@ -172,7 +172,7 @@ python test_vaihingen.py -c config/vaihingen/sfanet.py -o fig_results/vaihingen/
 <img src="fig_ex/potsdam.png" width="50%"/>
 
 ```
-python test_potsdam.py -c config/potsdam/sfanet.py -o fig_results/potsdam/sfanet --rgb -t 'lr'
+python test_potsdam.py -c config/potsdam/sfanet.py -o fig_results/potsdam/sfanet_potsdam --rgb -t 'lr'
 ```
 
 
@@ -182,12 +182,12 @@ python test_potsdam.py -c config/potsdam/sfanet.py -o fig_results/potsdam/sfanet
 
 - To get RGB files:
 ```
-python test_loveda.py -c config/loveda/sfanet.py -o fig_results/loveda/sfanet --rgb -t "d4"
+python test_loveda.py -c config/loveda/sfanet.py -o fig_results/loveda/sfanet_loveda --rgb -t "d4"
 ```
 
 - For submitting to the online test site:
 ```
-python test_loveda.py -c config/loveda/sfanet.py -o fig_results/loveda/sfanet -t "d4"
+python test_loveda.py -c config/loveda/sfanet.py -o fig_results/loveda/sfanet_loveda -t "d4"
 ```
 
 
@@ -196,7 +196,7 @@ python test_loveda.py -c config/loveda/sfanet.py -o fig_results/loveda/sfanet -t
 <img src="fig_ex/uavid.png" width="50%"/>
 
 ```
-python uavid_test.py -i "data/uavid/uavid_test" -c config/uavid/sfanet.py -o fig_results/uavid/sfanet -t "lr" -ph 1152 -pw 1024 -b 2 -d "uavid"
+python test_uavid.py -i "data/uavid/uavid_test" -c config/uavid/sfanet.py -o fig_results/uavid/sfanet_uavid -t "lr" -ph 1152 -pw 1024 -b 2 -d "uavid"
 ```
 
 
