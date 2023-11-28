@@ -39,9 +39,9 @@ num_classes = 6
 # split huge RS image to small patches
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--img-dir", default="data/vaihingen/train_images")
+    parser.add_argument("--label-dir", default="data/vaihingen/train_images")
     parser.add_argument("--mask-dir", default="data/vaihingen/train_masks")
-    parser.add_argument("--output-img-dir", default="data/vaihingen/train/images_1024")
+    parser.add_argument("--output-label-dir", default="data/vaihingen/train/images_1024")
     parser.add_argument("--output-mask-dir", default="data/vaihingen/train/masks_1024")
     parser.add_argument("--eroded", action='store_true')
     parser.add_argument("--gt", action='store_true')
@@ -190,8 +190,8 @@ def vaihingen_format(inp):
         out_origin_mask_path = os.path.join(masks_output_dir + '/origin/', "{}.tif".format(mask_filename))
         cv2.imwrite(out_origin_mask_path, mask_)
     # print(img_path)
-    # print(img.size, mask.size)
-    # img and mask shape: WxHxC
+    # print(label.size, mask.size)
+    # label and mask shape: WxHxC
     image_list, mask_list = image_augment(image=img.copy(), mask=mask.copy(), patch_size=split_size,
                                           mode=mode, val_scale=val_scale)
     assert img_filename == mask_filename and len(image_list) == len(mask_list)

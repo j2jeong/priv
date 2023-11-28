@@ -39,9 +39,9 @@ num_classes = 6
 # split huge RS image to small patches
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--img-dir", default="data/potsdam/train_images")
+    parser.add_argument("--label-dir", default="data/potsdam/train_images")
     parser.add_argument("--mask-dir", default="data/potsdam/train_masks")
-    parser.add_argument("--output-img-dir", default="data/potsdam/train/images_1024")
+    parser.add_argument("--output-label-dir", default="data/potsdam/train/images_1024")
     parser.add_argument("--output-mask-dir", default="data/potsdam/train/masks_1024")
     parser.add_argument("--eroded", action='store_true')
     parser.add_argument("--gt", action='store_true')  # output RGB mask
@@ -180,7 +180,7 @@ def patch_format(inp):
     else:
         img_path = img_path + '_IRRG.tif'
     img = Image.open(img_path).convert('RGB')
-    # print(img)
+    # print(label)
     mask = Image.open(mask_path).convert('RGB')
     if gt:
         mask_ = car_color_replace(mask.copy())
@@ -188,8 +188,8 @@ def patch_format(inp):
         cv2.imwrite(out_origin_mask_path, mask_)
     # print(mask)
     # print(img_path)
-    # print(img.size, mask.size)
-    # img and mask shape: WxHxC
+    # print(label.size, mask.size)
+    # label and mask shape: WxHxC
     image_list, mask_list = image_augment(image=img.copy(), mask=mask.copy(), patch_size=split_size,
                                           val_scale=val_scale, mode=mode)
     assert img_filename == mask_filename and len(image_list) == len(mask_list)

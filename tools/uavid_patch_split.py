@@ -38,7 +38,7 @@ num_classes = 8
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input-dir", default="data/uavid/uavid_train_val")
-    parser.add_argument("--output-img-dir", default="data/uavid/train_val/images")
+    parser.add_argument("--output-label-dir", default="data/uavid/train_val/images")
     parser.add_argument("--output-mask-dir", default="data/uavid/train_val/masks")
     parser.add_argument("--mode", type=str, default='train')
     parser.add_argument("--split-size-h", type=int, default=1024)
@@ -123,8 +123,8 @@ def patch_format(inp):
         img, mask = padifneeded(img.copy(), mask.copy())
 
         # print(img_path)
-        # print(img.size, mask.size)
-        # img and mask shape: WxHxC
+        # print(label.size, mask.size)
+        # label and mask shape: WxHxC
         image_list, mask_list = image_augment(image=img.copy(), mask=mask.copy(), mode=mode)
         assert len(image_list) == len(mask_list)
         for m in range(len(image_list)):
